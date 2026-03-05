@@ -1,0 +1,56 @@
+afternoon
+///
+const morningStructure = [
+    { topic: "Self", category: "Current/schedule", label: "daily overview" },
+    { topic: "Self", category: "PTT", label: "working" },
+    { topic: "Self", category: "interruptions/transitions/ideas/tasks", label: "Interruptions" },
+    { topic: "God", category: "prayer", label: "prayer & thanks" },
+    { topic: "study", category: "audio", label: " podcasts/Audio" },
+    { topic: "Self", category: "food", label: "meals" },
+    { topic: "Self", category: "P&P", label: "house" },
+    { topic: "Self", category: "interruptions/transitions/ideas/tasks", label: "Transitions" },
+    { topic: "Family", category: "Baby", label: "M & Joshua" },
+    { topic: "Self", category: "blue", label: "blue" },
+    { topic: "Family", category: "dad", label: "pops" },
+    { topic: "Self", category: "Work Enviornment", label: " work enviorment" },
+    { topic: "Money", category: "Purchases", label: "expenses" },
+  ];
+
+
+  morning
+  const morningStructure = [
+    { topic: "Self", category: "Sleep", label: "sleep" },
+    { topic: "Self", category: "Last night", label: "last night" },
+    { topic: "study", category: "audio", label: " audio" },
+    { topic: "Self", category: "hygiene", label: "Hygiene" },
+    { topic: "Self", category: "food", label: "my meal" },
+    { topic: "Self", category: "P&P", label: "P&P" },
+    { topic: "Self", category: "PTT", label: "to do" },
+    { topic: "Family", category: "Baby", label: "Joshua" },
+    { topic: "Self", category: "blue", label: "blue" },
+    { topic: "Self", category: "Work Enviornment", label: "Morning work enviorment" },
+    { topic: "Money", category: "Purchases", label: "expenses" },
+    { topic: "God", category: "prayer", label: "prayer & thanks" },
+  ];
+
+  Work
+  { topic: "God", category: "study", label: "Bible" },
+    { topic: "study", category: "tech", label: "Tech" },
+    { topic: "study", category: "audio", label: " audio" },
+    { topic: "Self", category: "blue", label: "blue" },
+    { topic: "Self", category: "Work Enviornment", label: "Morning work enviorment" },
+    
+
+    evening 
+    { topic: "Self", category: "overview", label: "todays overview" },
+        { topic: "Self", category: "For Tomorrow", label: "for tomorrow" },
+        { topic: "Evening", category: "evening plan", label: " evening plan" },
+        { topic: "Family", category: "M", label: "M" },
+        { topic: "Family", category: "Baby", label: "baby" },
+        { topic: "Evening", category: "Body & Mind", label: "mind & body" },
+        { topic: "Evening", category: "Evening Transition", label: "evening transition" },
+        { topic: "Family", category: "dad", label: "dad" },
+        { topic: "Evening", category: "closing routine", label: "closing setup" },
+        { topic: "Evening", category: "night routine", label: "night setup" },
+        
+      ];
