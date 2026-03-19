@@ -1,1 +1,1 @@
-export const API_URL = "http://localhost:27017/finalNote";
+export const API_URL = "http://192.168.1.107:27017/finalNote";
