@@ -21,7 +21,7 @@ import EveningPage from "./pages/EveningPage";
    Eurgo : ["ideas","summit", "Work Enviornment","cmc","cafe/office", "bag","eurgo to-do",],
    House : ["observation/ideas", "Repair skill /diy","summit apt", "cmc house","inventory/model", "house to-do", "to-buy", "dog","rental skills", ],
    Money : ["urgent/to-do","notes","to-buy","bills","money to-do","income/job","Purchases","tracking","grocery","order list","wishlist", ],
-   Code: ["to-do","questions & ideas","new code", "prayer-app","note","money","hizab","completed","code to-do",],
+   Code: ["to-do","questions & ideas","new code","github", "prayer-app","note","money","hizab","completed","code to-do",],
    Business : ["Business","22 Cafe","Chicken","business to-do",],
    Car : ["ideas/plans", "studyy","issues", "order","upcoming service", "history", "car to-do",],
    Evening :["completion, Evening plan","Body & Mind, Evening Transition","Entertainment","closing routine","Night routine"],

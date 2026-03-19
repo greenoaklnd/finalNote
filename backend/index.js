@@ -6,14 +6,14 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// --- Connect to MongoDB ---
-mongoose.connect("mongodb://127.0.0.1:27017/finalNote", {
+// --- Connect to MongoDB ---mongodb://localhost:27017/finalNote
+mongoose.connect("mongodb://localhost:27017/finalNote", {
   // no need for useNewUrlParser or useUnifiedTopology in latest mongoose
 })
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.error("MongoDB connection error:", err));
 
-// --- Schemas ---
+// adding--- Schemas ---
 const itemSchema = new mongoose.Schema({
   text: { type: String, required: true },
   date: { type: Date, default: Date.now }, // timestamp for each item
@@ -247,4 +247,6 @@ app.get("/items", async (req, res) => {
 
 // Start server
 const PORT = 5000;
-app.listen(PORT, () => console.log(`Backend running on http://localhost:${PORT}`));
+app.listen(PORT, "0.0.0.0", () =>
+  console.log(`Backend running on port ${PORT}`)
+);
