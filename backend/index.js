@@ -43,6 +43,11 @@ const endOfToday = () => {
 
 // --- Routes ---
 
+app.get("/test", (req, res) => {
+  console.log("Test route hit");
+  res.send("OK");
+});
+
 // Get all blocks by category query
 app.get("/blocks", async (req, res) => {
   const { category } = req.query;
@@ -243,6 +248,11 @@ app.get("/items", async (req, res) => {
   } catch (err) {
     res.status(500).json({ error: "Failed to fetch items" });
   }
+});
+
+app.get("/ping", (req, res) => {
+  console.log("Ping received");
+  res.send("pong");
 });
 
 // Start server
