@@ -1,9 +1,10 @@
-// App.jsx
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useEffect, useState } from "react";
+
 import TopicsPage from "./pages/TopicsPage";
 import TopicCategoryPage from "./pages/TopicCategoryPage";
 import CategoryPage from "./pages/CategoryPage";
-import PaperViewPage from "./pages/PaperViewPage"
+import PaperViewPage from "./pages/PaperViewPage";
 import FilteredPaperViewPage from "./pages/FilteredPaperViewPage";
 import TopicManagerPage from "./pages/TopicManagerPage";
 import CalendarPage from "./pages/CalenderPage";
@@ -12,7 +13,9 @@ import AfternoonPage from "./pages/AfternoonPage";
 import WorkPage from "./pages/WorkPage";
 import EveningPage from "./pages/EveningPage";
 
- const topics = {
+import "./App.css";
+
+const topics = {
    God : ["walk","study","Thanksgiving","prayer","Jesus","Verses","Principalities","to research","Fasting","interesting","podcasts","The Return","OT / NT","Angels & Demons","OT","Keys and other","Study structure","Bible to-do",],
    Self : [ "Current/schedule", "For Tomorrow","overview","P&P","Evening P&P","PTT","daytime","hygiene","interruptions/transitions/ideas/tasks","food","Time","Wake","Last night", "Mornings","Evenings","appointments/meetings","attention","Sleep","Mind/Mood","blue","blue mangos","meals","health","calls","Discipline","dreams",],
    Family : ["Baby","mercy","Joshua", "dad", "Fatherhood", "Tsega/Abe/Mom","family to-do",],
@@ -30,27 +33,37 @@ import EveningPage from "./pages/EveningPage";
    
  };
 
-
 export default function App() {
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    document.body.classList.toggle("dark", darkMode);
+  }, [darkMode]);
+
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<TopicsPage topics={topics} />} />
-        <Route
-          path="/topic/:topicName"
-          element={<TopicCategoryPage topics={topics} />}
-        />
-        <Route path="/category/:category" element={<CategoryPage />} />
-        <Route path="/paperview" element={<PaperViewPage />} />
-        <Route path="/paperview/:category" element={<PaperViewPage />} />
-        <Route path="/paperview/filter" element={<FilteredPaperViewPage topics={topics} />} />
-        <Route path="/topics/manage" element={<TopicManagerPage topics={topics}  />} />
-        <Route path="/calendar" element={<CalendarPage />} />
-        <Route path="/morning" element={<MorningPage />} />
-        <Route path="/afternoon" element={<AfternoonPage />} />
-        <Route path="/work" element={<WorkPage />} />
-        <Route path="/evening" element={<EveningPage />} />
-      </Routes>
-    </Router>
+    <>
+      {/* Toggle button */}
+      <button onClick={() => setDarkMode(!darkMode)}>
+        {darkMode ? "Light Mode" : "Dark Mode"}
+      </button>
+
+      {/* App routes */}
+      <Router>
+        <Routes>
+          <Route path="/" element={<TopicsPage topics={topics} />} />
+          <Route path="/topic/:topicName" element={<TopicCategoryPage topics={topics} />} />
+          <Route path="/category/:category" element={<CategoryPage />} />
+          <Route path="/paperview" element={<PaperViewPage />} />
+          <Route path="/paperview/:category" element={<PaperViewPage />} />
+          <Route path="/paperview/filter" element={<FilteredPaperViewPage topics={topics} />} />
+          <Route path="/topics/manage" element={<TopicManagerPage topics={topics} />} />
+          <Route path="/calendar" element={<CalendarPage />} />
+          <Route path="/morning" element={<MorningPage />} />
+          <Route path="/afternoon" element={<AfternoonPage />} />
+          <Route path="/work" element={<WorkPage />} />
+          <Route path="/evening" element={<EveningPage />} />
+        </Routes>
+      </Router>
+    </>
   );
 }

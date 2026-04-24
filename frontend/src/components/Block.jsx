@@ -18,7 +18,9 @@ export default function Block({
   onDeleteItem,
 }) {
   const [newItemText, setNewItemText] = useState("");
+
   const saveTimeouts = useRef({});
+  const itemRefs = useRef({}); // ✅ track initialized editors
 
   // 🔥 debounce save
   const handleInput = (blockId, itemId, html) => {
@@ -101,8 +103,10 @@ export default function Block({
               }
               onKeyDown={handleKeyDown}
               ref={(el) => {
-                if (el && el.innerHTML !== formatContent(item.text)) {
+                // ✅ ONLY set content once (prevents cursor jump)
+                if (el && !itemRefs.current[item._id]) {
                   el.innerHTML = formatContent(item.text);
+                  itemRefs.current[item._id] = true;
                 }
               }}
               style={{
