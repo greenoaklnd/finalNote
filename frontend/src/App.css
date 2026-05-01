@@ -1,35 +1,62 @@
-import { useEffect, useState } from "react";
-
-/* default = light mode */
+/* =========================
+   LIGHT MODE (default)
+========================= */
 body {
-  background-color: #fff;
-  color: #000;
+  background-color: #ffffff;
+  color: #000000;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-/* dark mode */
+/* inputs */
+body input,
+body textarea {
+  background: #fff;
+  color: #000;
+  border: 1px solid #ccc;
+}
+
+/* blocks */
+body .block,
+body .block-title,
+body .category-box {
+  background: #f5f5f5;
+}
+
+/* buttons */
+body button {
+  background: #e0e0e0;
+  color: #000;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+/* =========================
+   DARK MODE
+   (activated via body.dark)
+========================= */
 body.dark {
-  background-color: #000;
-  color: #fff;
+  background-color: #000000;
+  color: #ffffff;
 }
 
 /* inputs */
 body.dark input,
 body.dark textarea {
-  background: #111;
-  color: #fff;
-  border: 1px solid #444;
+  background: #111111;
+  color: #ffffff;
+  border: 1px solid #444444;
 }
 
 /* blocks */
 body.dark .block,
 body.dark .block-title,
 body.dark .category-box {
-  background: #111;
+  background: #111111;
 }
 
 /* buttons */
 body.dark button {
-  background: #222;
-  color: #fff;
-  border: 1px solid #555;
+  background: #222222;
+  color: #ffffff;
+  border: 1px solid #555555;
 }

@@ -34,17 +34,22 @@ const topics = {
  };
 
 export default function App() {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true); // 👈 default DARK
 
   useEffect(() => {
-    document.body.classList.toggle("dark", darkMode);
+    if (darkMode) {
+      document.body.classList.add("dark");
+    } else {
+      document.body.classList.remove("dark");
+    }
   }, [darkMode]);
+
 
   return (
     <>
       {/* Toggle button */}
       <button onClick={() => setDarkMode(!darkMode)}>
-        {darkMode ? "Light Mode" : "Dark Mode"}
+        Toggle Theme
       </button>
 
       {/* App routes */}

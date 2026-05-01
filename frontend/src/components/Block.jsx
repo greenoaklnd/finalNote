@@ -31,8 +31,54 @@ export default function Block({
     }, 500);
   };
 
-  // 🔥 keyboard shortcuts
+  // 🔥 keyboard shortcuts + smart indent
   const handleKeyDown = (e) => {
+    // ===================== ✨ SMART INDENT START =====================
+    if (e.key === "Enter") {
+      e.preventDefault();
+
+      const selection = window.getSelection();
+      if (!selection.rangeCount) return;
+
+      const range = selection.getRangeAt(0);
+      let container = range.startContainer;
+
+      // Ensure we are working with a text node
+      if (container.nodeType !== Node.TEXT_NODE) {
+        container = container.childNodes[range.startOffset - 1] || container;
+      }
+
+      const text = container.textContent || "";
+      const beforeCursor = text.slice(0, range.startOffset);
+
+      const lastNewline = beforeCursor.lastIndexOf("\n");
+      const currentLine = beforeCursor.slice(lastNewline + 1);
+
+      // Extract indentation (spaces/tabs)
+      const indentMatch = currentLine.match(/^\s*/);
+      const indent = indentMatch ? indentMatch[0] : "";
+
+      // Insert line break + indent
+      const br = document.createElement("br");
+      const indentNode = document.createTextNode(indent);
+
+      range.deleteContents();
+      range.insertNode(br);
+      range.collapse(false);
+      range.insertNode(indentNode);
+
+      // Move cursor after indent
+      range.setStartAfter(indentNode);
+      range.setEndAfter(indentNode);
+
+      selection.removeAllRanges();
+      selection.addRange(range);
+
+      return;
+    }
+    // ===================== ✨ SMART INDENT END =====================
+
+    // 🔥 formatting shortcuts
     if (e.ctrlKey || e.metaKey) {
       if (e.key === "b") {
         e.preventDefault();
@@ -118,6 +164,7 @@ export default function Block({
                 border: "1px solid #ddd",
                 borderRadius: 6,
                 overflowY: "auto",
+                whiteSpace: "pre-wrap", // helps indentation display correctly
               }}
             />
 

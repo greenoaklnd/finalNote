@@ -3,10 +3,15 @@ import react from "@vitejs/plugin-react";
 import { VitePWA } from "vite-plugin-pwa";
 
 export default defineConfig({
+  server: {
+    host: true,        // 🔥 allows external access
+    port: 5173,
+    strictPort: true,
+  },
   plugins: [
     react(),
     VitePWA({
-      registerType: "autoUpdate", // automatically update service worker
+      registerType: "autoUpdate",
       manifest: {
         name: "FinalNote",
         short_name: "FinalNote",
@@ -32,7 +37,7 @@ export default defineConfig({
         globPatterns: ["**/*.{js,css,html,ico,png,svg}"],
       },
       devOptions: {
-        enabled: true, // allow testing PWA in dev mode
+        enabled: true,
       },
     }),
   ],
